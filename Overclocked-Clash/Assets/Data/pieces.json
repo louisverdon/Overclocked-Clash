@@ -5,19 +5,22 @@
       "name": "Unité Centrale",
       "category": "core",
       "maxHP": 50,
+      "energyCost": 0,
       "energyCapacity": 100,
       "energyRegen": 1,
-      "ports": {
-        "inputs": [
-          {"name": "playerInputA", "type": "bool"},
-          {"name": "playerInputB", "type": "bool"},
-          {"name": "playerInputC", "type": "bool"}
-        ],
-        "outputs": [
-          {"name": "energyLevel", "type": "number"},
-          {"name": "coreHP", "type": "number"}
-        ]
-      },
+      "baseDamage": 0,
+      "baseCooldown": 0,
+      "detectionRange": 0,
+      "baseSpeed": 0,
+      "inputs": [
+        { "name": "playerInputA", "type": "bool" },
+        { "name": "playerInputB", "type": "bool" },
+        { "name": "playerInputC", "type": "bool" }
+      ],
+      "outputs": [
+        { "name": "energyLevel", "type": "number" },
+        { "name": "coreHP", "type": "number" }
+      ],
       "anchorPoints": 4,
       "behavior": "core"
     },
@@ -26,19 +29,21 @@
       "name": "Canon Basique",
       "category": "weapon",
       "maxHP": 10,
+      "energyCost": 2,
+      "energyCapacity": 0,
+      "energyRegen": 0,
       "baseDamage": 5,
       "baseCooldown": 3,
-      "energyCost": 2,
-      "ports": {
-        "inputs": [
-          {"name": "trigger", "type": "bool"},
-          {"name": "multiplierIn", "type": "number"}
-        ],
-        "outputs": [
-          {"name": "cooldownRemaining", "type": "number"},
-          {"name": "damageOutput", "type": "number"}
-        ]
-      },
+      "detectionRange": 0,
+      "baseSpeed": 0,
+      "inputs": [
+        { "name": "trigger", "type": "bool" },
+        { "name": "multiplierIn", "type": "number" }
+      ],
+      "outputs": [
+        { "name": "cooldownRemaining", "type": "number" },
+        { "name": "damageOutput", "type": "number" }
+      ],
       "anchorPoints": 2,
       "behavior": "weapon"
     },
@@ -48,16 +53,19 @@
       "category": "sensor",
       "maxHP": 5,
       "energyCost": 1,
+      "energyCapacity": 0,
+      "energyRegen": 0,
+      "baseDamage": 0,
+      "baseCooldown": 0,
       "detectionRange": 10,
-      "ports": {
-        "inputs": [
-          {"name": "enable", "type": "bool"}
-        ],
-        "outputs": [
-          {"name": "targetDetected", "type": "bool"},
-          {"name": "targetDistance", "type": "number"}
-        ]
-      },
+      "baseSpeed": 0,
+      "inputs": [
+        { "name": "enable", "type": "bool" }
+      ],
+      "outputs": [
+        { "name": "targetDetected", "type": "bool" },
+        { "name": "targetDistance", "type": "number" }
+      ],
       "anchorPoints": 1,
       "behavior": "radar"
     },
@@ -67,20 +75,22 @@
       "category": "movement",
       "maxHP": 8,
       "energyCost": 1,
+      "energyCapacity": 0,
+      "energyRegen": 0,
+      "baseDamage": 0,
+      "baseCooldown": 0,
+      "detectionRange": 0,
       "baseSpeed": 2,
-      "ports": {
-        "inputs": [
-          {"name": "forward", "type": "bool"},
-          {"name": "backward", "type": "bool"},
-          {"name": "speedMultiplier", "type": "number"}
-        ],
-        "outputs": [
-          {"name": "currentSpeed", "type": "number"}
-        ]
-      },
+      "inputs": [
+        { "name": "forward", "type": "bool" },
+        { "name": "backward", "type": "bool" },
+        { "name": "speedMultiplier", "type": "number" }
+      ],
+      "outputs": [
+        { "name": "currentSpeed", "type": "number" }
+      ],
       "anchorPoints": 1,
       "behavior": "movement"
     }
   ]
 }
-

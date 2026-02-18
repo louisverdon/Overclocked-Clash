@@ -28,12 +28,5 @@ namespace OverclockedClash.Data
         public int anchorPoints;
         public string behavior; // "weapon", "radar", "movement", "core", etc.
     }
-
-    [Serializable]
-    public class PortDefinition
-    {
-        public string name;
-        public string type; // "bool", "number", "event", "hud_number"
-    }
 }
 

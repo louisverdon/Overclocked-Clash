@@ -27,10 +27,14 @@ namespace OverclockedClash.Data
         private Dictionary<string, PieceDefinition> _pieces;
         private Dictionary<string, ModuleDefinition> _modules;
         private Dictionary<string, LogicNodeDefinition> _logicNodes;
+        private Dictionary<string, StatDefinition> _stats;
+        private PieceDefinition _unitCore;
 
         public Dictionary<string, PieceDefinition> Pieces => _pieces;
         public Dictionary<string, ModuleDefinition> Modules => _modules;
         public Dictionary<string, LogicNodeDefinition> LogicNodes => _logicNodes;
+        public Dictionary<string, StatDefinition> Stats => _stats;
+        public PieceDefinition UnitCore => _unitCore;
 
         private void Awake()
         {
@@ -50,6 +54,8 @@ namespace OverclockedClash.Data
             _pieces = LoadPieces();
             _modules = LoadModules();
             _logicNodes = LoadLogicNodes();
+            _stats = LoadStats();
+            _unitCore = LoadUnitCore();
         }
 
         private Dictionary<string, PieceDefinition> LoadPieces()
@@ -117,6 +123,45 @@ namespace OverclockedClash.Data
             Debug.Log($"Loaded {dict.Count} logic nodes");
             return dict;
         }
+
+        private Dictionary<string, StatDefinition> LoadStats()
+        {
+            string path = Path.Combine(Application.dataPath, "Data", "stats.json");
+            if (!File.Exists(path))
+            {
+                Debug.LogWarning($"Stats file not found at: {path}");
+                return new Dictionary<string, StatDefinition>();
+            }
+
+            string json = File.ReadAllText(path);
+            var wrapper = JsonUtility.FromJson<StatsWrapper>(json);
+            if (wrapper?.stats == null)
+                return new Dictionary<string, StatDefinition>();
+
+            var dict = new Dictionary<string, StatDefinition>();
+            foreach (var stat in wrapper.stats)
+            {
+                dict[stat.id] = stat;
+            }
+            Debug.Log($"Loaded {dict.Count} stats");
+            return dict;
+        }
+
+        private PieceDefinition LoadUnitCore()
+        {
+            string path = Path.Combine(Application.dataPath, "Data", "unit_core.json");
+            if (!File.Exists(path))
+            {
+                Debug.LogWarning($"Unit core file not found at: {path}, using from pieces if available");
+                return _pieces != null && _pieces.TryGetValue("unit_core", out var core) ? core : null;
+            }
+
+            string json = File.ReadAllText(path);
+            var wrapper = JsonUtility.FromJson<UnitCoreWrapper>(json);
+            if (wrapper?.unitCore != null)
+                Debug.Log("Loaded unit_core from unit_core.json");
+            return wrapper?.unitCore;
+        }
     }
 
     // Wrappers pour la désérialisation JSON
@@ -136,6 +181,18 @@ namespace OverclockedClash.Data
     public class LogicNodesWrapper
     {
         public LogicNodeDefinition[] logicNodes;
+    }
+
+    [System.Serializable]
+    public class StatsWrapper
+    {
+        public StatDefinition[] stats;
+    }
+
+    [System.Serializable]
+    public class UnitCoreWrapper
+    {
+        public PieceDefinition unitCore;
     }
 }
 

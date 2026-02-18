@@ -3,87 +3,133 @@
     {
       "id": "and",
       "name": "ET Logique",
-      "ports": {
-        "inputs": [
-          {"name": "inputA", "type": "bool"},
-          {"name": "inputB", "type": "bool"}
-        ],
-        "outputs": [
-          {"name": "output", "type": "bool"}
-        ]
-      },
+      "inputs": [
+        { "name": "inputA", "type": "bool" },
+        { "name": "inputB", "type": "bool" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "bool" }
+      ],
       "type": "and"
     },
     {
       "id": "or",
       "name": "OU Logique",
-      "ports": {
-        "inputs": [
-          {"name": "inputA", "type": "bool"},
-          {"name": "inputB", "type": "bool"}
-        ],
-        "outputs": [
-          {"name": "output", "type": "bool"}
-        ]
-      },
+      "inputs": [
+        { "name": "inputA", "type": "bool" },
+        { "name": "inputB", "type": "bool" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "bool" }
+      ],
       "type": "or"
     },
     {
       "id": "not",
       "name": "NON Logique",
-      "ports": {
-        "inputs": [
-          {"name": "input", "type": "bool"}
-        ],
-        "outputs": [
-          {"name": "output", "type": "bool"}
-        ]
-      },
+      "inputs": [
+        { "name": "input", "type": "bool" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "bool" }
+      ],
       "type": "not"
     },
     {
-      "id": "compare",
-      "name": "Comparateur",
-      "ports": {
-        "inputs": [
-          {"name": "valueA", "type": "number"},
-          {"name": "valueB", "type": "number"},
-          {"name": "comparisonType", "type": "number"}
-        ],
-        "outputs": [
-          {"name": "result", "type": "bool"}
-        ]
-      },
-      "type": "compare",
-      "comparisonTypes": [">", "<", "=", "!="]
-    },
-    {
-      "id": "delay",
-      "name": "Délai",
-      "ports": {
-        "inputs": [
-          {"name": "input", "type": "bool"},
-          {"name": "delayTicks", "type": "number"}
-        ],
-        "outputs": [
-          {"name": "output", "type": "bool"}
-        ]
-      },
-      "type": "delay"
+      "id": "relay",
+      "name": "Relais",
+      "inputs": [
+        { "name": "input", "type": "bool" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "bool" }
+      ],
+      "type": "relay"
     },
     {
       "id": "toggle",
       "name": "Bascule",
-      "ports": {
-        "inputs": [
-          {"name": "trigger", "type": "bool"}
-        ],
-        "outputs": [
-          {"name": "output", "type": "bool"}
-        ]
-      },
+      "inputs": [
+        { "name": "trigger", "type": "bool" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "bool" }
+      ],
       "type": "toggle"
+    },
+    {
+      "id": "compare",
+      "name": "Comparateur",
+      "inputs": [
+        { "name": "valueA", "type": "number" },
+        { "name": "valueB", "type": "number" },
+        { "name": "comparisonType", "type": "number" }
+      ],
+      "outputs": [
+        { "name": "result", "type": "bool" }
+      ],
+      "type": "compare",
+      "comparisonTypes": [ ">", "<", "=", "!=" ]
+    },
+    {
+      "id": "delay",
+      "name": "Délai",
+      "inputs": [
+        { "name": "input", "type": "bool" },
+        { "name": "delayTicks", "type": "number" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "bool" }
+      ],
+      "type": "delay"
+    },
+    {
+      "id": "add",
+      "name": "Addition",
+      "inputs": [
+        { "name": "valueA", "type": "number" },
+        { "name": "valueB", "type": "number" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "number" }
+      ],
+      "type": "add"
+    },
+    {
+      "id": "subtract",
+      "name": "Soustraction",
+      "inputs": [
+        { "name": "valueA", "type": "number" },
+        { "name": "valueB", "type": "number" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "number" }
+      ],
+      "type": "subtract"
+    },
+    {
+      "id": "multiply",
+      "name": "Multiplication",
+      "inputs": [
+        { "name": "valueA", "type": "number" },
+        { "name": "valueB", "type": "number" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "number" }
+      ],
+      "type": "multiply"
+    },
+    {
+      "id": "divide",
+      "name": "Division",
+      "inputs": [
+        { "name": "valueA", "type": "number" },
+        { "name": "valueB", "type": "number" }
+      ],
+      "outputs": [
+        { "name": "output", "type": "number" }
+      ],
+      "type": "divide"
     }
   ]
 }
-

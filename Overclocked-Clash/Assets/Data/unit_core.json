@@ -1,0 +1,26 @@
+{
+  "unitCore": {
+    "id": "unit_core",
+    "name": "Unité Centrale",
+    "category": "core",
+    "maxHP": 50,
+    "energyCost": 0,
+    "energyCapacity": 100,
+    "energyRegen": 1,
+    "baseDamage": 0,
+    "baseCooldown": 0,
+    "detectionRange": 0,
+    "baseSpeed": 0,
+    "inputs": [
+      { "name": "playerInputA", "type": "bool" },
+      { "name": "playerInputB", "type": "bool" },
+      { "name": "playerInputC", "type": "bool" }
+    ],
+    "outputs": [
+      { "name": "energyLevel", "type": "number" },
+      { "name": "coreHP", "type": "number" }
+    ],
+    "anchorPoints": 4,
+    "behavior": "core"
+  }
+}

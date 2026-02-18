@@ -8,8 +8,9 @@ Construisez des bots pièce par pièce, créez des circuits logiques pour les co
 
 ## 🚀 Démarrage rapide
 
-1. Ouvrir le projet dans Unity 6000.1.7f1 ou supérieur
-2. Consulter `PLAN_POC.md` pour le plan d'action détaillé
+1. **Ouvrir le bon dossier dans Unity** : le projet Unity est dans le sous-dossier `Overclocked-Clash/`. Dans Unity Hub → Ouvrir, choisir le dossier **`Overclocked-Clash/Overclocked-Clash`** (celui qui contient `Assets`, `ProjectSettings`, `Packages`), pas la racine du dépôt.
+2. Utiliser Unity **6000.1.7f1** ou supérieur.
+3. Consulter `PLAN_POC.md` pour le plan d'action détaillé.
 3. Commencer par la Phase 1 (modèle de données) - déjà partiellement implémentée
 
 ## 📁 Structure du projet

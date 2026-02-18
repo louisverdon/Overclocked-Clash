@@ -14,22 +14,22 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
 **Objectif** : Définir toutes les structures de données nécessaires
 
 #### 1.1 Créer les fichiers JSON de définition
-- [ ] `Assets/Data/pieces.json` - Définitions des pièces (Canon, Radar, Roue, etc.)
-- [ ] `Assets/Data/modules.json` - Définitions des modules modificateurs
-- [ ] `Assets/Data/logicNodes.json` - Définitions des composants logiques
-- [ ] `Assets/Data/unit_core.json` - Définition de l'unité centrale
-- [ ] `Assets/Data/stats.json` - Liste des statistiques modifiables
+- [x] `Assets/Data/pieces.json` - Définitions des pièces (Canon, Radar, Roue, etc.)
+- [x] `Assets/Data/modules.json` - Définitions des modules modificateurs
+- [x] `Assets/Data/logicNodes.json` - Définitions des composants logiques
+- [x] `Assets/Data/unit_core.json` - Définition de l'unité centrale
+- [x] `Assets/Data/stats.json` - Liste des statistiques modifiables
 
 #### 1.2 Créer les classes C# de base
-- [ ] `Scripts/Data/PieceDefinition.cs` - Classe pour charger les définitions JSON
-- [ ] `Scripts/Data/ModuleDefinition.cs`
-- [ ] `Scripts/Data/LogicNodeDefinition.cs`
-- [ ] `Scripts/Data/PortDefinition.cs` - Structure pour les ports (type, nom, direction)
-- [ ] `Scripts/Data/StatDefinition.cs` - Enum/struct pour les stats
+- [x] `Scripts/Data/PieceDefinition.cs` - Classe pour charger les définitions JSON
+- [x] `Scripts/Data/ModuleDefinition.cs`
+- [x] `Scripts/Data/LogicNodeDefinition.cs`
+- [x] `Scripts/Data/PortDefinition.cs` - Structure pour les ports (type, nom, direction)
+- [x] `Scripts/Data/StatDefinition.cs` - Enum/struct pour les stats
 
 #### 1.3 Système de chargement JSON
-- [ ] `Scripts/Data/DataLoader.cs` - Singleton pour charger tous les JSON au démarrage
-- [ ] Tests unitaires basiques pour vérifier le chargement
+- [x] `Scripts/Data/DataLoader.cs` - Singleton pour charger tous les JSON au démarrage
+- [x] Tests unitaires basiques pour vérifier le chargement (BootLoader)
 
 **Livrable** : Toutes les données peuvent être chargées depuis JSON et utilisées en C#
 
@@ -39,23 +39,23 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
 **Objectif** : Implémenter les classes principales qui représentent un bot en mémoire
 
 #### 2.1 Système de ports
-- [ ] `Scripts/Core/PortType.cs` - Enum (Bool, Number, Event, HUD_Number)
-- [ ] `Scripts/Core/PortInstance.cs` - Instance d'un port avec valeur courante et connexions
+- [x] `Scripts/Core/PortType.cs` - Enum (Bool, Number, Event, HUD_Number)
+- [x] `Scripts/Core/PortInstance.cs` - Instance d'un port avec valeur courante et connexions
   - Propriétés : Type, Nom, Valeur, Liste de connexions
   - Méthodes : Connect(), Disconnect(), GetValue()
 
 #### 2.2 Instance de pièce
-- [ ] `Scripts/Core/PieceInstance.cs` - Représente une pièce dans un bot
+- [x] `Scripts/Core/PieceInstance.cs` - Représente une pièce dans un bot
   - Propriétés : Definition, HP courant, HP max, Ports (inputs/outputs)
   - Méthodes : TakeDamage(), IsDestroyed(), GetPort()
 
 #### 2.3 Unité centrale
-- [ ] `Scripts/Core/UnitCore.cs` - Hérite de PieceInstance
+- [x] `Scripts/Core/UnitCore.cs` - Hérite de PieceInstance
   - Propriétés : Énergie stockée, Énergie max, Inputs joueur (A/B/C)
   - Méthodes : ConsumeEnergy(), AddEnergy(), GetPlayerInput()
 
 #### 2.4 Instance de bot
-- [ ] `Scripts/Core/BotInstance.cs` - Contient toutes les pièces et le graphe logique
+- [x] `Scripts/Core/BotInstance.cs` - Contient toutes les pièces et le graphe logique
   - Propriétés : Liste de pièces, Unité centrale, Graphe de connexions
   - Méthodes : AddPiece(), ConnectPorts(), IsDestroyed() (si unité centrale détruite)
   - Méthode : Clone() pour les tests

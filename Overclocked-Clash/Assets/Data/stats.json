@@ -1,35 +1,9 @@
 {
   "stats": [
-    {
-      "id": "damage",
-      "name": "Dégâts",
-      "type": "number",
-      "defaultValue": 0
-    },
-    {
-      "id": "cooldown",
-      "name": "Temps de rechargement",
-      "type": "number",
-      "defaultValue": 0
-    },
-    {
-      "id": "speed",
-      "name": "Vitesse",
-      "type": "number",
-      "defaultValue": 0
-    },
-    {
-      "id": "range",
-      "name": "Portée",
-      "type": "number",
-      "defaultValue": 0
-    },
-    {
-      "id": "energyCost",
-      "name": "Coût énergétique",
-      "type": "number",
-      "defaultValue": 0
-    }
+    { "id": "damage", "name": "Dégâts", "type": "number", "defaultValue": 0 },
+    { "id": "cooldown", "name": "Temps de rechargement", "type": "number", "defaultValue": 0 },
+    { "id": "speed", "name": "Vitesse", "type": "number", "defaultValue": 0 },
+    { "id": "range", "name": "Portée", "type": "number", "defaultValue": 0 },
+    { "id": "energyCost", "name": "Coût énergétique", "type": "number", "defaultValue": 0 }
   ]
 }
-
