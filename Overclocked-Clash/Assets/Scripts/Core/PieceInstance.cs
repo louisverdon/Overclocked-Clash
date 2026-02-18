@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using OverclockedClash.Data;
+using OverclockedClash.Modules;
 
 namespace OverclockedClash.Core
 {
@@ -15,9 +17,11 @@ namespace OverclockedClash.Core
 
         private List<PortInstance> _inputPorts;
         private List<PortInstance> _outputPorts;
+        private List<StatModule> _attachedModules;
 
         public IReadOnlyList<PortInstance> InputPorts => _inputPorts;
         public IReadOnlyList<PortInstance> OutputPorts => _outputPorts;
+        public IReadOnlyList<StatModule> Modules => _attachedModules;
 
         public PieceInstance(PieceDefinition definition)
         {
@@ -42,6 +46,25 @@ namespace OverclockedClash.Core
                     _outputPorts.Add(new PortInstance(p.name, pt, isInput: false));
                 }
             }
+            _attachedModules = new List<StatModule>();
+        }
+
+        /// <summary>
+        /// Attache un module modificateur de stat à cette pièce pour la stat donnée.
+        /// </summary>
+        public void AddModule(StatModule module, string statName)
+        {
+            if (module == null) return;
+            module.StatName = statName;
+            _attachedModules.Add(module);
+        }
+
+        /// <summary>
+        /// Retourne les modules attachés qui modifient la stat donnée.
+        /// </summary>
+        public IEnumerable<StatModule> GetModulesForStat(string statName)
+        {
+            return _attachedModules.Where(m => m.StatName == statName);
         }
 
         public void TakeDamage(int amount)

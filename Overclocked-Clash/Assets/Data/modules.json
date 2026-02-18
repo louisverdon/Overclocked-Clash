@@ -9,9 +9,7 @@
         { "name": "valueIn", "type": "number" },
         { "name": "multiplier", "type": "number" }
       ],
-      "outputs": [
-        { "name": "valueOut", "type": "number" }
-      ],
+      "outputs": [{ "name": "valueOut", "type": "number" }],
       "type": "multiplier"
     },
     {
@@ -23,9 +21,7 @@
         { "name": "valueIn", "type": "number" },
         { "name": "addValue", "type": "number" }
       ],
-      "outputs": [
-        { "name": "valueOut", "type": "number" }
-      ],
+      "outputs": [{ "name": "valueOut", "type": "number" }],
       "type": "adder"
     },
     {
@@ -37,9 +33,7 @@
         { "name": "valueIn", "type": "number" },
         { "name": "divisor", "type": "number" }
       ],
-      "outputs": [
-        { "name": "valueOut", "type": "number" }
-      ],
+      "outputs": [{ "name": "valueOut", "type": "number" }],
       "type": "divider"
     },
     {
@@ -52,10 +46,21 @@
         { "name": "min", "type": "number" },
         { "name": "max", "type": "number" }
       ],
-      "outputs": [
-        { "name": "valueOut", "type": "number" }
-      ],
+      "outputs": [{ "name": "valueOut", "type": "number" }],
       "type": "clamp"
+    },
+    {
+      "id": "minmax",
+      "name": "Min/Max",
+      "energyCost": 1,
+      "inputs": [
+        { "name": "activate", "type": "bool" },
+        { "name": "valueA", "type": "number" },
+        { "name": "valueB", "type": "number" },
+        { "name": "mode", "type": "number" }
+      ],
+      "outputs": [{ "name": "valueOut", "type": "number" }],
+      "type": "minmax"
     }
   ]
 }

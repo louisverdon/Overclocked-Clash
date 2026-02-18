@@ -103,19 +103,19 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
 **Objectif** : Implémenter les modules qui modifient dynamiquement les stats des pièces
 
 #### 4.1 Classe de base pour modules
-- [ ] `Scripts/Modules/StatModule.cs` - Classe abstraite
+- [x] `Scripts/Modules/StatModule.cs` - Classe abstraite
   - Propriétés : Pièce cible, Signal d'activation (bool), Stat modifiée
   - Méthode abstraite : `float Modify(float baseValue)` - Retourne la valeur modifiée
 
 #### 4.2 Implémenter les modules génériques
-- [ ] `Scripts/Modules/MultiplierModule.cs` - Multiplie une stat par un facteur
-- [ ] `Scripts/Modules/AdderModule.cs` - Ajoute une valeur à une stat
-- [ ] `Scripts/Modules/DividerModule.cs` - Divise une stat
-- [ ] `Scripts/Modules/ClampModule.cs` - Limite entre min et max
-- [ ] `Scripts/Modules/MinMaxModule.cs` - Retourne min ou max
+- [x] `Scripts/Modules/MultiplierModule.cs` - Multiplie une stat par un facteur
+- [x] `Scripts/Modules/AdderModule.cs` - Ajoute une valeur à une stat
+- [x] `Scripts/Modules/DividerModule.cs` - Divise une stat
+- [x] `Scripts/Modules/ClampModule.cs` - Limite entre min et max
+- [x] `Scripts/Modules/MinMaxModule.cs` - Retourne min ou max
 
 #### 4.3 Système de calcul de stats
-- [ ] `Scripts/Core/StatCalculator.cs` - Calcule les stats finales d'une pièce
+- [x] `Scripts/Core/StatCalculator.cs` - Calcule les stats finales d'une pièce
   - Méthode : `float GetFinalStat(PieceInstance piece, string statName)`
   - Prend en compte tous les modules actifs sur la pièce
   - Ne s'applique que si le signal d'activation est ON
