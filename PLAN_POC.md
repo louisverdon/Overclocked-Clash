@@ -149,37 +149,37 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
 **Objectif** : Simulation déterministe tour par tour avec micro-ticks
 
 #### 6.1 Classe CombatEngine
-- [ ] `Scripts/Combat/CombatEngine.cs` - Moteur principal
+- [x] `Scripts/Combat/CombatEngine.cs` - Moteur principal
   - Propriétés : Liste de bots, Tick actuel, État du combat
   - Méthode : `void Initialize(BotInstance bot1, BotInstance bot2)`
   - Méthode : `void ExecuteMicroTick(Dictionary<int, PlayerInput> inputs)` - Un micro-tick
   - Méthode : `CombatResult ExecuteFullTurn()` - 5 micro-ticks = 1 tour
 
 #### 6.2 Cycle d'un micro-tick (dans CombatEngine)
-- [ ] Lire les inputs joueurs
-- [ ] Propager les signaux dans tous les graphes logiques
-- [ ] Calculer les stat modifiers actifs pour toutes les pièces
-- [ ] Exécuter les comportements des pièces (méthode abstraite `Execute()`)
-- [ ] Appliquer les dégâts et vérifier les destructions
-- [ ] Consommer l'énergie
-- [ ] Vérifier les conditions de fin (bot détruit)
+- [x] Lire les inputs joueurs
+- [x] Propager les signaux dans tous les graphes logiques
+- [x] Calculer les stat modifiers actifs pour toutes les pièces
+- [x] Exécuter les comportements des pièces (méthode abstraite `Execute()`)
+- [x] Appliquer les dégâts et vérifier les destructions
+- [x] Consommer l'énergie
+- [x] Vérifier les conditions de fin (bot détruit)
 
 #### 6.3 Comportements des pièces
-- [ ] `Scripts/Pieces/PieceBehavior.cs` - Classe abstraite
+- [x] `Scripts/Pieces/PieceBehavior.cs` - Classe abstraite
   - Méthode : `void Execute(PieceInstance piece, CombatContext context)`
-- [ ] `Scripts/Pieces/WeaponBehavior.cs` - Tire des projectiles
-- [ ] `Scripts/Pieces/MovementBehavior.cs` - Déplace le bot
-- [ ] `Scripts/Pieces/RadarBehavior.cs` - Détecte les cibles
+- [x] `Scripts/Pieces/WeaponBehavior.cs` - Tire des projectiles
+- [x] `Scripts/Pieces/MovementBehavior.cs` - Déplace le bot
+- [x] `Scripts/Pieces/RadarBehavior.cs` - Détecte les cibles
 
 #### 6.4 Système de dégâts
-- [ ] `Scripts/Combat/DamageSystem.cs` - Gère les dégâts
+- [x] `Scripts/Combat/DamageSystem.cs` - Gère les dégâts
   - Méthode : `void ApplyDamage(PieceInstance target, float damage)`
   - Propagation des interruptions si pièce détruite
 
 #### 6.5 Déterministe
-- [ ] Utiliser un système de seed fixe pour les calculs
-- [ ] Pas de Random() non contrôlé
-- [ ] Ordre d'exécution fixe
+- [x] Utiliser un système de seed fixe pour les calculs
+- [x] Pas de Random() non contrôlé
+- [x] Ordre d'exécution fixe
 
 **Livrable** : Un combat peut être simulé micro-tick par micro-tick
 

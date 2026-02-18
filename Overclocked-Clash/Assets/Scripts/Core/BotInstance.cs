@@ -1,20 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using OverclockedClash.Data;
+using OverclockedClash.Logic;
 using OverclockedClash.Pieces;
 
 namespace OverclockedClash.Core
 {
     /// <summary>
-    /// Représente un bot complet : pièces, unité centrale, et graphe de connexions (connexions entre ports).
+    /// Représente un bot complet : pièces, unité centrale, graphe logique optionnel et connexions entre ports.
     /// </summary>
     public class BotInstance
     {
         private List<PieceInstance> _pieces;
         private UnitCore _core;
+        private LogicGraph _logicGraph;
 
         public IReadOnlyList<PieceInstance> Pieces => _pieces;
         public UnitCore Core => _core;
+        /// <summary> Graphe de nœuds logiques (optionnel). Évalué chaque micro-tick par le CombatEngine. </summary>
+        public LogicGraph LogicGraph { get => _logicGraph; set => _logicGraph = value; }
 
         public BotInstance()
         {
@@ -130,6 +134,7 @@ namespace OverclockedClash.Core
             clone.ApplyEnergyBonuses();
             if (clone.Core != null)
                 clone.Core.RechargeEnergy(clone.Core.MaxEnergy);
+            clone._logicGraph = null;
             return clone;
         }
     }
