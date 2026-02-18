@@ -68,30 +68,30 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
 **Objectif** : Implémenter les composants logiques (AND, OR, NOT, comparateurs, etc.)
 
 #### 3.1 Classe de base pour nœuds logiques
-- [ ] `Scripts/Logic/LogicNode.cs` - Classe abstraite de base
+- [x] `Scripts/Logic/LogicNode.cs` - Classe abstraite de base
   - Méthode abstraite : `void Evaluate()` - Recalcule les sorties
   - Propriétés : Ports d'entrée/sortie
 
 #### 3.2 Implémenter les nœuds booléens
-- [ ] `Scripts/Logic/Nodes/AndNode.cs`
-- [ ] `Scripts/Logic/Nodes/OrNode.cs`
-- [ ] `Scripts/Logic/Nodes/NotNode.cs`
-- [ ] `Scripts/Logic/Nodes/ToggleNode.cs` - Toggle/Latch
-- [ ] `Scripts/Logic/Nodes/RelayNode.cs` - Répéteur booléen
+- [x] `Scripts/Logic/Nodes/AndNode.cs`
+- [x] `Scripts/Logic/Nodes/OrNode.cs`
+- [x] `Scripts/Logic/Nodes/NotNode.cs`
+- [x] `Scripts/Logic/Nodes/ToggleNode.cs` - Toggle/Latch
+- [x] `Scripts/Logic/Nodes/RelayNode.cs` - Répéteur booléen
 
 #### 3.3 Implémenter les comparateurs
-- [ ] `Scripts/Logic/Nodes/CompareNode.cs` - Comparaisons >, <, =, !=
+- [x] `Scripts/Logic/Nodes/CompareNode.cs` - Comparaisons >, <, =, !=
   - Propriété : Type de comparaison (enum)
 
 #### 3.4 Implémenter les opérateurs mathématiques
-- [ ] `Scripts/Logic/Nodes/AddNode.cs`
-- [ ] `Scripts/Logic/Nodes/SubtractNode.cs`
-- [ ] `Scripts/Logic/Nodes/MultiplyNode.cs`
-- [ ] `Scripts/Logic/Nodes/DivideNode.cs`
-- [ ] `Scripts/Logic/Nodes/DelayNode.cs` - Retarde un signal
+- [x] `Scripts/Logic/Nodes/AddNode.cs`
+- [x] `Scripts/Logic/Nodes/SubtractNode.cs`
+- [x] `Scripts/Logic/Nodes/MultiplyNode.cs`
+- [x] `Scripts/Logic/Nodes/DivideNode.cs`
+- [x] `Scripts/Logic/Nodes/DelayNode.cs` - Retarde un signal
 
 #### 3.5 Gestionnaire de graphe logique
-- [ ] `Scripts/Logic/LogicGraph.cs` - Gère tous les nœuds logiques
+- [x] `Scripts/Logic/LogicGraph.cs` - Gère tous les nœuds logiques
   - Méthode : `void EvaluateAll()` - Évalue tous les nœuds dans l'ordre
   - Méthode : `void PropagateSignals()` - Propage les valeurs dans le graphe
 
