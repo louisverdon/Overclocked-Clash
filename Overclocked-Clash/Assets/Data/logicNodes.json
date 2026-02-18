@@ -1,0 +1,89 @@
+{
+  "logicNodes": [
+    {
+      "id": "and",
+      "name": "ET Logique",
+      "ports": {
+        "inputs": [
+          {"name": "inputA", "type": "bool"},
+          {"name": "inputB", "type": "bool"}
+        ],
+        "outputs": [
+          {"name": "output", "type": "bool"}
+        ]
+      },
+      "type": "and"
+    },
+    {
+      "id": "or",
+      "name": "OU Logique",
+      "ports": {
+        "inputs": [
+          {"name": "inputA", "type": "bool"},
+          {"name": "inputB", "type": "bool"}
+        ],
+        "outputs": [
+          {"name": "output", "type": "bool"}
+        ]
+      },
+      "type": "or"
+    },
+    {
+      "id": "not",
+      "name": "NON Logique",
+      "ports": {
+        "inputs": [
+          {"name": "input", "type": "bool"}
+        ],
+        "outputs": [
+          {"name": "output", "type": "bool"}
+        ]
+      },
+      "type": "not"
+    },
+    {
+      "id": "compare",
+      "name": "Comparateur",
+      "ports": {
+        "inputs": [
+          {"name": "valueA", "type": "number"},
+          {"name": "valueB", "type": "number"},
+          {"name": "comparisonType", "type": "number"}
+        ],
+        "outputs": [
+          {"name": "result", "type": "bool"}
+        ]
+      },
+      "type": "compare",
+      "comparisonTypes": [">", "<", "=", "!="]
+    },
+    {
+      "id": "delay",
+      "name": "Délai",
+      "ports": {
+        "inputs": [
+          {"name": "input", "type": "bool"},
+          {"name": "delayTicks", "type": "number"}
+        ],
+        "outputs": [
+          {"name": "output", "type": "bool"}
+        ]
+      },
+      "type": "delay"
+    },
+    {
+      "id": "toggle",
+      "name": "Bascule",
+      "ports": {
+        "inputs": [
+          {"name": "trigger", "type": "bool"}
+        ],
+        "outputs": [
+          {"name": "output", "type": "bool"}
+        ]
+      },
+      "type": "toggle"
+    }
+  ]
+}
+

@@ -1,0 +1,86 @@
+{
+  "pieces": [
+    {
+      "id": "unit_core",
+      "name": "Unité Centrale",
+      "category": "core",
+      "maxHP": 50,
+      "energyCapacity": 100,
+      "energyRegen": 1,
+      "ports": {
+        "inputs": [
+          {"name": "playerInputA", "type": "bool"},
+          {"name": "playerInputB", "type": "bool"},
+          {"name": "playerInputC", "type": "bool"}
+        ],
+        "outputs": [
+          {"name": "energyLevel", "type": "number"},
+          {"name": "coreHP", "type": "number"}
+        ]
+      },
+      "anchorPoints": 4,
+      "behavior": "core"
+    },
+    {
+      "id": "canon_basic",
+      "name": "Canon Basique",
+      "category": "weapon",
+      "maxHP": 10,
+      "baseDamage": 5,
+      "baseCooldown": 3,
+      "energyCost": 2,
+      "ports": {
+        "inputs": [
+          {"name": "trigger", "type": "bool"},
+          {"name": "multiplierIn", "type": "number"}
+        ],
+        "outputs": [
+          {"name": "cooldownRemaining", "type": "number"},
+          {"name": "damageOutput", "type": "number"}
+        ]
+      },
+      "anchorPoints": 2,
+      "behavior": "weapon"
+    },
+    {
+      "id": "radar_basic",
+      "name": "Radar Basique",
+      "category": "sensor",
+      "maxHP": 5,
+      "energyCost": 1,
+      "detectionRange": 10,
+      "ports": {
+        "inputs": [
+          {"name": "enable", "type": "bool"}
+        ],
+        "outputs": [
+          {"name": "targetDetected", "type": "bool"},
+          {"name": "targetDistance", "type": "number"}
+        ]
+      },
+      "anchorPoints": 1,
+      "behavior": "radar"
+    },
+    {
+      "id": "wheel_basic",
+      "name": "Roue Basique",
+      "category": "movement",
+      "maxHP": 8,
+      "energyCost": 1,
+      "baseSpeed": 2,
+      "ports": {
+        "inputs": [
+          {"name": "forward", "type": "bool"},
+          {"name": "backward", "type": "bool"},
+          {"name": "speedMultiplier", "type": "number"}
+        ],
+        "outputs": [
+          {"name": "currentSpeed", "type": "number"}
+        ]
+      },
+      "anchorPoints": 1,
+      "behavior": "movement"
+    }
+  ]
+}
+

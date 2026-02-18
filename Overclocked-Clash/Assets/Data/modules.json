@@ -1,0 +1,70 @@
+{
+  "modules": [
+    {
+      "id": "multiplier",
+      "name": "Multiplicateur",
+      "energyCost": 1,
+      "ports": {
+        "inputs": [
+          {"name": "activate", "type": "bool"},
+          {"name": "valueIn", "type": "number"},
+          {"name": "multiplier", "type": "number"}
+        ],
+        "outputs": [
+          {"name": "valueOut", "type": "number"}
+        ]
+      },
+      "type": "multiplier"
+    },
+    {
+      "id": "adder",
+      "name": "Additionneur",
+      "energyCost": 1,
+      "ports": {
+        "inputs": [
+          {"name": "activate", "type": "bool"},
+          {"name": "valueIn", "type": "number"},
+          {"name": "addValue", "type": "number"}
+        ],
+        "outputs": [
+          {"name": "valueOut", "type": "number"}
+        ]
+      },
+      "type": "adder"
+    },
+    {
+      "id": "divider",
+      "name": "Diviseur",
+      "energyCost": 1,
+      "ports": {
+        "inputs": [
+          {"name": "activate", "type": "bool"},
+          {"name": "valueIn", "type": "number"},
+          {"name": "divisor", "type": "number"}
+        ],
+        "outputs": [
+          {"name": "valueOut", "type": "number"}
+        ]
+      },
+      "type": "divider"
+    },
+    {
+      "id": "clamp",
+      "name": "Limiteur",
+      "energyCost": 1,
+      "ports": {
+        "inputs": [
+          {"name": "activate", "type": "bool"},
+          {"name": "valueIn", "type": "number"},
+          {"name": "min", "type": "number"},
+          {"name": "max", "type": "number"}
+        ],
+        "outputs": [
+          {"name": "valueOut", "type": "number"}
+        ]
+      },
+      "type": "clamp"
+    }
+  ]
+}
+
