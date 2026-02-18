@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using OverclockedClash.Data;
+using OverclockedClash.Pieces;
 
 namespace OverclockedClash.Core
 {
@@ -46,6 +47,20 @@ namespace OverclockedClash.Core
         }
 
         /// <summary>
+        /// Applique les bonus énergétiques des pièces (batteries → capacité, générateurs/panneaux listés pour le moteur).
+        /// À appeler après avoir ajouté toutes les pièces.
+        /// </summary>
+        public void ApplyEnergyBonuses()
+        {
+            if (_core == null) return;
+            foreach (var p in _pieces)
+            {
+                if (p is BatteryPiece battery)
+                    _core.AddCapacityBonus(battery.GetCapacityBonus());
+            }
+        }
+
+        /// <summary>
         /// Le bot est détruit si l'unité centrale est détruite.
         /// </summary>
         public bool IsDestroyed()
@@ -66,6 +81,12 @@ namespace OverclockedClash.Core
                 PieceInstance newPiece;
                 if (p is UnitCore)
                     newPiece = new UnitCore(p.Definition);
+                else if (p is BatteryPiece)
+                    newPiece = new BatteryPiece(p.Definition);
+                else if (p is GeneratorPiece)
+                    newPiece = new GeneratorPiece(p.Definition);
+                else if (p is SolarPanelPiece)
+                    newPiece = new SolarPanelPiece(p.Definition);
                 else
                     newPiece = new PieceInstance(p.Definition);
 
@@ -106,6 +127,9 @@ namespace OverclockedClash.Core
                 }
             }
 
+            clone.ApplyEnergyBonuses();
+            if (clone.Core != null)
+                clone.Core.RechargeEnergy(clone.Core.MaxEnergy);
             return clone;
         }
     }

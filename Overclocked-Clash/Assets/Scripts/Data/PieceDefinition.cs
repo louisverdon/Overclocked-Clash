@@ -16,7 +16,9 @@ namespace OverclockedClash.Data
         public float energyCost;
         public float energyCapacity; // Pour l'unité centrale
         public float energyRegen; // Pour l'unité centrale
-        
+        public float energyCapacityBonus; // Pour les batteries (étend la capacité max du core)
+        public float energyPerTick; // Pour générateurs / panneaux solaires (énergie par tick)
+
         // Stats spécifiques selon le type de pièce
         public float baseDamage;
         public float baseCooldown;

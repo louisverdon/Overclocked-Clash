@@ -128,18 +128,18 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
 **Objectif** : Gérer la consommation et le stockage d'énergie
 
 #### 5.1 Gestion de l'énergie dans UnitCore
-- [ ] Étendre `UnitCore.cs` avec :
+- [x] Étendre `UnitCore.cs` avec :
   - Méthode : `bool TryConsumeEnergy(float amount)` - Retourne false si pas assez
   - Méthode : `void RechargeEnergy(float amount)` - Recharge (pour générateurs)
 
 #### 5.2 Pièces énergétiques
-- [ ] `Scripts/Pieces/BatteryPiece.cs` - Étend la capacité max
-- [ ] `Scripts/Pieces/GeneratorPiece.cs` - Génère de l'énergie passivement
-- [ ] `Scripts/Pieces/SolarPanelPiece.cs` - Génère de l'énergie (variante)
+- [x] `Scripts/Pieces/BatteryPiece.cs` - Étend la capacité max
+- [x] `Scripts/Pieces/GeneratorPiece.cs` - Génère de l'énergie passivement
+- [x] `Scripts/Pieces/SolarPanelPiece.cs` - Génère de l'énergie (variante)
 
 #### 5.3 Consommation dans les pièces
-- [ ] Ajouter consommation dans `PieceInstance.Execute()` (méthode abstraite)
-- [ ] Vérifier l'énergie avant d'exécuter une action
+- [x] Ajouter consommation dans `PieceInstance.Execute()` (méthode abstraite)
+- [x] Vérifier l'énergie avant d'exécuter une action
 
 **Livrable** : Le système d'énergie fonctionne et limite les actions
 

@@ -5,21 +5,28 @@ namespace OverclockedClash.Core
 {
     /// <summary>
     /// Unité centrale d'un bot : hérite de PieceInstance, gère l'énergie et les inputs joueur (A/B/C).
+    /// Implémente IEnergyConsumer pour que les pièces puissent consommer l'énergie du bot.
     /// </summary>
-    public class UnitCore : PieceInstance
+    public class UnitCore : PieceInstance, IEnergyConsumer
     {
+        private float _baseMaxEnergy;
+        private float _capacityBonus;
+
         public float CurrentEnergy { get; private set; }
-        public float MaxEnergy { get; private set; }
+        public float BaseMaxEnergy => _baseMaxEnergy;
+        public float CapacityBonus => _capacityBonus;
+        public float MaxEnergy => _baseMaxEnergy + _capacityBonus;
         public float EnergyRegen => Definition?.energyRegen ?? 0f;
 
         public UnitCore(PieceDefinition definition) : base(definition)
         {
-            MaxEnergy = definition?.energyCapacity ?? 100f;
+            _baseMaxEnergy = definition?.energyCapacity ?? 100f;
+            _capacityBonus = 0f;
             CurrentEnergy = MaxEnergy;
         }
 
         /// <summary>
-        /// Tente de consommer de l'énergie. Retourne true si possible.
+        /// Tente de consommer de l'énergie. Retourne false si pas assez.
         /// </summary>
         public bool TryConsumeEnergy(float amount)
         {
@@ -30,11 +37,27 @@ namespace OverclockedClash.Core
         }
 
         /// <summary>
-        /// Recharge l'énergie (générateurs, etc.)
+        /// Recharge l'énergie (générateurs, panneaux solaires, etc.)
+        /// </summary>
+        public void RechargeEnergy(float amount)
+        {
+            AddEnergy(amount);
+        }
+
+        /// <summary>
+        /// Ajoute de l'énergie (plafonnée à MaxEnergy).
         /// </summary>
         public void AddEnergy(float amount)
         {
             CurrentEnergy = Mathf.Min(MaxEnergy, CurrentEnergy + amount);
+        }
+
+        /// <summary>
+        /// Ajoute un bonus de capacité (ex. batteries). À appeler après construction du bot.
+        /// </summary>
+        public void AddCapacityBonus(float bonus)
+        {
+            if (bonus > 0) _capacityBonus += bonus;
         }
 
         /// <summary>

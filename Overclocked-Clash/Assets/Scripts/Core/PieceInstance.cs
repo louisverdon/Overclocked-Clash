@@ -102,5 +102,23 @@ namespace OverclockedClash.Core
                 if (p.Name == name) return p;
             return null;
         }
+
+        /// <summary>
+        /// Coût énergétique de la pièce (prend en compte les modules). Utilisé avant Execute().
+        /// </summary>
+        public float GetEnergyCost()
+        {
+            return StatCalculator.GetFinalStat(this, "energyCost");
+        }
+
+        /// <summary>
+        /// Exécute l'action de la pièce (consommation d'énergie + comportement).
+        /// Override dans les sous-classes (weapon, movement, etc.) ; par défaut ne fait rien.
+        /// Retourne true si l'action a été exécutée (énergie consommée).
+        /// </summary>
+        public virtual bool Execute(IEnergyConsumer energyConsumer)
+        {
+            return false;
+        }
     }
 }
