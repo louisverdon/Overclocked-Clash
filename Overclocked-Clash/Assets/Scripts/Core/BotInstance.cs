@@ -3,6 +3,7 @@ using UnityEngine;
 using OverclockedClash.Data;
 using OverclockedClash.Logic;
 using OverclockedClash.Pieces;
+using OverclockedClash.Testing;
 
 namespace OverclockedClash.Core
 {
@@ -14,11 +15,14 @@ namespace OverclockedClash.Core
         private List<PieceInstance> _pieces;
         private UnitCore _core;
         private LogicGraph _logicGraph;
+        private bool _isValidated;
 
         public IReadOnlyList<PieceInstance> Pieces => _pieces;
         public UnitCore Core => _core;
         /// <summary> Graphe de nœuds logiques (optionnel). Évalué chaque micro-tick par le CombatEngine. </summary>
         public LogicGraph LogicGraph { get => _logicGraph; set => _logicGraph = value; }
+        /// <summary> True si Validate() a été appelé et que le bot a détruit la cible de test. </summary>
+        public bool IsValidated => _isValidated;
 
         public BotInstance()
         {
@@ -62,6 +66,15 @@ namespace OverclockedClash.Core
                 if (p is BatteryPiece battery)
                     _core.AddCapacityBonus(battery.GetCapacityBonus());
             }
+        }
+
+        /// <summary>
+        /// Lance le test de validation (combat contre cible 20 PV, 200 micro-ticks) et met à jour IsValidated.
+        /// </summary>
+        public void Validate()
+        {
+            var result = TestEngine.ValidateBot(this);
+            _isValidated = result.IsValid;
         }
 
         /// <summary>

@@ -189,7 +189,7 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
 **Objectif** : Tester automatiquement si un bot est fonctionnel
 
 #### 7.1 TestEngine
-- [ ] `Scripts/Testing/TestEngine.cs` - Moteur de test
+- [x] `Scripts/Testing/TestEngine.cs` - Moteur de test
   - Méthode : `TestResult ValidateBot(BotInstance bot)`
   - Clone le bot
   - Spawn une cible fixe (20 PV, immobile)
@@ -197,16 +197,16 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
   - Vérifie si la cible est détruite
 
 #### 7.2 Cible de test
-- [ ] `Scripts/Testing/TestTarget.cs` - Cible simple pour les tests
+- [x] `Scripts/Testing/TestTarget.cs` - Cible simple pour les tests
   - 20 PV, pas de mouvement, pas de défense
 
 #### 7.3 Résultat de test
-- [ ] `Scripts/Testing/TestResult.cs` - Structure de résultat
+- [x] `Scripts/Testing/TestResult.cs` - Structure de résultat
   - Propriétés : IsValid, DamageDealt, TicksExecuted, ErrorMessage
 
 #### 7.4 Intégration dans BotInstance
-- [ ] Ajouter propriété `bool IsValidated` dans `BotInstance`
-- [ ] Méthode : `void Validate()` - Lance le test et met à jour IsValidated
+- [x] Ajouter propriété `bool IsValidated` dans `BotInstance`
+- [x] Méthode : `void Validate()` - Lance le test et met à jour IsValidated
 
 **Livrable** : On peut valider automatiquement qu'un bot fonctionne
 
@@ -216,26 +216,26 @@ Ce document détaille le plan d'action pour réaliser un premier POC fonctionnel
 **Objectif** : Interface simple pour construire et tester un bot
 
 #### 8.1 Scène d'éditeur
-- [ ] Créer `Scenes/BotEditor.unity`
-- [ ] UI minimale avec :
+- [x] Créer `Scenes/BotEditor.unity`
+- [x] UI minimale avec :
   - Liste des pièces disponibles
   - Zone de construction (grille simple)
   - Bouton "Valider le bot"
   - Bouton "Tester en combat"
 
 #### 8.2 Scripts d'éditeur
-- [ ] `Scripts/Editor/BotBuilder.cs` - Gère la construction en mode éditeur
-  - Méthode : `void AddPiece(string pieceId, Vector2 position)`
-  - Méthode : `void ConnectPorts(PortInstance port1, PortInstance port2)`
+- [x] `Scripts/Builder/BotBuilder.cs` - Gère la construction
+  - Méthode : `AddPiece(string pieceId, Vector2 position)`
+  - Méthode : `ConnectPorts(PortInstance port1, PortInstance port2)`
   - Méthode : `BotInstance BuildBot()` - Crée le BotInstance final
 
 #### 8.3 Visualisation des connexions
-- [ ] Afficher les connexions entre ports (lignes simples)
-- [ ] Mode "câblage" pour connecter les ports
+- [x] Afficher les connexions entre ports (ConnectionDrawer.cs)
+- [x] Mode "câblage" pour connecter les ports
 
 #### 8.4 Scène de test
-- [ ] Créer `Scenes/CombatTest.unity`
-- [ ] Afficher les résultats du combat (logs console pour l'instant)
+- [x] Créer `Scenes/CombatTest.unity`
+- [x] Afficher les résultats du combat (logs console + status)
 
 **Livrable** : Interface basique pour construire un bot et le tester
 
